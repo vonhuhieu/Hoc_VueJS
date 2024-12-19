@@ -1,10 +1,18 @@
 <script setup>
-import { reactive, ref } from 'vue';
+import { nextTick, reactive, ref } from 'vue';
 const count = ref(0);
-const increaseCount = () => count.value++;
-const decreaseCount = () => count.value--;
+const increaseCount = async () => {
+  count.value++;
+  console.log(document.getElementById('count').innerText);
+  await nextTick();
+  console.log(document.getElementById('count').innerText);
+};
+const decreaseCount = () => {
+  count.value--;
+  console.log(document.getElementById('count').innerText);
+};
 const obj = reactive({
-  user:{
+  user: {
     age: 21,
     name: "Vonhuhieu",
   },
@@ -15,7 +23,7 @@ const decreaseAge = () => obj.user.age--;
 
 <template>
   hello world
-  <p>Count: {{ count }}</p>
+  <p id="count">Count: {{ count }}</p>
   <button @click="increaseCount">Increase</button>
   <button @click="decreaseCount">Decrease</button>
   <p>Your age: {{ obj.user.age }}</p>
