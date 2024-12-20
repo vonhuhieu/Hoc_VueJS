@@ -14,6 +14,9 @@ let intervalId = null;
 
 onMounted(() => {
   intervalId = setInterval(() => {
+    if (time.value === 0) {
+      time.value = 60;
+    }
     time.value--;
   }, 1000);
 });
