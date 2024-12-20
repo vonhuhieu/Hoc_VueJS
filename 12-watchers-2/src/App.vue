@@ -6,6 +6,10 @@ const y = ref(0);
 
 const user = ref({
   age: 18,
+  class: {
+    students: 0,
+    name: "A",
+  },
 });
 
 watch(
@@ -19,12 +23,15 @@ watch([x, () => y.value + 1], ([newX, newY]) => {
   console.log(`Gia tri cap nhat: ${newX}, ${newY}`);
 });
 
-watch(() => user.value.age, (newTuoi) => {
-  console.log(`Tuoi: ${newTuoi}`);
-});
+watch(
+  user.value,
+  (newUser, oldUser) => {
+    console.log(`NewUser: ${JSON.stringify(newUser)}`, `OldUser: ${JSON.stringify(oldUser)}`);
+  }, {deep: true, immediate:true});
+  // immediate khas giong useEffect
 
 const changeAge = () => {
-  user.value.age = 20;
+  user.value.class.students++;
 };
 
 const increment = () => {
