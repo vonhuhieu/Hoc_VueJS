@@ -23,7 +23,8 @@ const thirdOption = ref("third option");
   <div>
     <h1>hello world</h1>
     <p>Text: {{ text }}</p>
-    <input v-model="text" />
+    <!-- khi user thao tac ra ngoai hoac enter moi cap nhat -->
+    <input v-model.lazy.trim="text" /> 
     <br />
 
     <p>Multiline text: {{ multilineText }}</p>
