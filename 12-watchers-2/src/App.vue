@@ -27,8 +27,7 @@ watch(
   user.value,
   (newUser, oldUser) => {
     console.log(`NewUser: ${JSON.stringify(newUser)}`, `OldUser: ${JSON.stringify(oldUser)}`);
-  }, {deep: true, immediate:true});
-  // immediate khas giong useEffect
+  }, {deep: true, immediate:true}); // immediate khas giong useEffect
 
 const changeAge = () => {
   user.value.class.students++;
