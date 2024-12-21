@@ -2,6 +2,14 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import ButtonCount from './components/ButtonCount.vue';
+import { ref } from 'vue';
+import ChildrenComponent from './components/ChildrenComponent.vue';
+
+const message = ref("Hello");
+
+const sayHi = () => {
+  console.log("say hi");
+};
 </script>
 
 <template>
@@ -9,8 +17,11 @@ import ButtonCount from './components/ButtonCount.vue';
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld message="Hello world!!!!!" />
-      <ButtonCount v-bind:init="14"/>
+      <HelloWorld v-bind:greetingMessage="message + ' World'" />
+      <ButtonCount v-bind:init="14" />
+      <ChildrenComponent v-bind:propA="12" v-bind:propB="2" v-bind:propC="'Hello'" v-bind:propD="200" v-bind:propE="{
+        message: 'Hello'
+      }" v-bind:propF="'success'" v-bind:propG="sayHi()" v-bi />
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
