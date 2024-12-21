@@ -25,7 +25,7 @@ const changeUsernameDefaultFromParent = () => {
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <ComponentVModel v-model:email="email" v-model:username="username" />
+      <ComponentVModel v-model:email="email" v-model:username.capitalize="username" />
       <button @click="changeEmailDefaultFromParent">changeEmailDefaultFromParent</button>
       <button @click="changeUsernameDefaultFromParent">changeUsernameDefaultFromParent</button>
       <HelloWorld msg="You did it!" />
