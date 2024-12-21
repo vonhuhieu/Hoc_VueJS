@@ -10,6 +10,7 @@ import GlobalComponent from './components/GlobalComponent.vue'
 const app = createApp(App)
 
 app.component('ComponentA', GlobalComponent)
+app.provide("message", "Hello from USSR")
 app.use(createPinia())
 app.use(router)
 

@@ -5,11 +5,16 @@ import ToolingIcon from './icons/IconTooling.vue'
 import EcosystemIcon from './icons/IconEcosystem.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
+import LocaleComponent from './LocaleComponent.vue'
+import { inject } from 'vue'
+const message = inject('message');
 </script>
 
 <template>
   <WelcomeItem>
     <ComponentA />
+    <p>{{ message }}</p>
+    <LocaleComponent/>
     <template #icon>
       <DocumentationIcon />
     </template>

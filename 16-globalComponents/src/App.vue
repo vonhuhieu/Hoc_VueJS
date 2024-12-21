@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import ComponentVModel from './components/ComponentVModel.vue';
-import { ref, watchEffect } from 'vue';
+import { provide, ref, watchEffect } from 'vue';
 
 const email = ref("");
 const username = ref("");
@@ -18,6 +18,13 @@ const changeEmailDefaultFromParent = () => {
 const changeUsernameDefaultFromParent = () => {
   username.value = "parent";
 };
+
+const currentLocale = ref("vietnam");
+
+const changeCurrentLocale = () => {
+  currentLocale.value = "USSR"
+};
+provide("locale", currentLocale);
 </script>
 
 <template>
@@ -28,7 +35,8 @@ const changeUsernameDefaultFromParent = () => {
       <ComponentVModel v-model:email="email" v-model:username.capitalize="username" />
       <button @click="changeEmailDefaultFromParent">changeEmailDefaultFromParent</button>
       <button @click="changeUsernameDefaultFromParent">changeUsernameDefaultFromParent</button>
-      <HelloWorld msg="You did it!" />
+      <button @click="changeCurrentLocale">Change currentLocale</button>
+      <HelloWorld msg="You did it!"/>
       <ComponentA />
       <nav>
         <RouterLink to="/">Home</RouterLink>
