@@ -5,6 +5,7 @@ import ComponentVModel from './components/ComponentVModel.vue';
 import { ref, watchEffect } from 'vue';
 
 const email = ref("");
+const username = ref("");
 
 watchEffect(() => {
   console.log(email.value);
@@ -13,6 +14,10 @@ watchEffect(() => {
 const changeEmailDefaultFromParent = () => {
   email.value = "parent@gmail.com";
 };
+
+const changeUsernameDefaultFromParent = () => {
+  username.value = "parent";
+};
 </script>
 
 <template>
@@ -20,8 +25,9 @@ const changeEmailDefaultFromParent = () => {
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <ComponentVModel v-model="email" />
+      <ComponentVModel v-model:email="email" v-model:username="username" />
       <button @click="changeEmailDefaultFromParent">changeEmailDefaultFromParent</button>
+      <button @click="changeUsernameDefaultFromParent">changeUsernameDefaultFromParent</button>
       <HelloWorld msg="You did it!" />
       <ComponentA />
       <nav>
