@@ -21,7 +21,11 @@ const increaseBy2 = (number1, number2) => {
 
     <div class="wrapper">
       <HelloWorld v-bind:msg="count" />
-      <ButtonComponent @increase="count++" @increaseByTwoTimes="count = count + 2" @increaseBy="increaseBy" @increaseBy2="increaseBy2"/>
+      <ButtonComponent @increase="count++" @increaseByTwoTimes="count = count + 2" @increaseBy="increaseBy" @increaseBy2="increaseBy2">
+        <template #increase><span>Increase</span></template>
+        <template #increaseByTwoTimes>IncreaseByTwoTimes</template>
+        <template #increaseBy>increaseBy</template>
+      </ButtonComponent>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>

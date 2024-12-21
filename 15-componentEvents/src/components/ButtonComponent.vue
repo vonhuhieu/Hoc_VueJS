@@ -1,7 +1,7 @@
 <template>
-    <button @click="callFunctionIncrease">Click</button>
-    <button @click="callFunctionIncreaseByTwoTimes">Click me</button>
-    <button @click="callFunctionIncreaseBy">click me 2</button>
+    <button @click="callFunctionIncrease"><slot name="increase">Button content</slot></button>
+    <button @click="callFunctionIncreaseByTwoTimes"><slot name="increaseByTwoTimes">Button content</slot></button>
+    <button @click="callFunctionIncreaseBy"><slot name="increaseBy">Button content</slot></button>
     <button @click="callFunctionIncreaseBy2">click me 3</button>
 </template>
 
