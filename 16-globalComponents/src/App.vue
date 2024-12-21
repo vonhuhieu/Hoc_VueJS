@@ -1,6 +1,18 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import ComponentVModel from './components/ComponentVModel.vue';
+import { ref, watchEffect } from 'vue';
+
+const email = ref("");
+
+watchEffect(() => {
+  console.log(email.value);
+});
+
+const changeEmailDefaultFromParent = () => {
+  email.value = "parent@gmail.com";
+};
 </script>
 
 <template>
@@ -8,8 +20,10 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
+      <ComponentVModel v-model="email" />
+      <button @click="changeEmailDefaultFromParent">changeEmailDefaultFromParent</button>
       <HelloWorld msg="You did it!" />
-      <ComponentA/>
+      <ComponentA />
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
