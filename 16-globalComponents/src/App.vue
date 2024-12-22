@@ -22,9 +22,17 @@ const changeUsernameDefaultFromParent = () => {
 const currentLocale = ref("vietnam");
 
 const changeCurrentLocale = () => {
-  currentLocale.value = "USSR"
+  currentLocale.value = "USSR";
 };
-provide("locale", currentLocale);
+
+const updateCurrentLocale = () => {
+  currentLocale.value = "Russia";
+};
+
+provide("locale", {
+  locale: currentLocale,
+  updateLocale: updateCurrentLocale,
+});
 </script>
 
 <template>
@@ -36,7 +44,7 @@ provide("locale", currentLocale);
       <button @click="changeEmailDefaultFromParent">changeEmailDefaultFromParent</button>
       <button @click="changeUsernameDefaultFromParent">changeUsernameDefaultFromParent</button>
       <button @click="changeCurrentLocale">Change currentLocale</button>
-      <HelloWorld msg="You did it!"/>
+      <HelloWorld msg="You did it!" />
       <ComponentA />
       <nav>
         <RouterLink to="/">Home</RouterLink>
