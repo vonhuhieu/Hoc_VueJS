@@ -8,9 +8,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onActivated, onDeactivated, ref } from 'vue';
 
 const count = ref(0);
+
+onActivated(() => {
+    console.log("onActivated component A");
+});
+
+onDeactivated(() => {
+    console.log("onDeactived compoent A");
+});
 </script>
 
 <style scoped>
