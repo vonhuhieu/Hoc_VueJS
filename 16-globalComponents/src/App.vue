@@ -1,8 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import ComponentVModel from './components/ComponentVModel.vue';
-import { provide, ref, watchEffect } from 'vue';
+import { defineAsyncComponent, provide, ref, watchEffect } from 'vue';
+import LoadingComponent from './components/LoadingComponent.vue';
+import ErrorComponent from './components/ErrorComponent.vue';
 
 const email = ref("");
 const username = ref("");
@@ -32,6 +33,12 @@ const updateCurrentLocale = () => {
 provide("locale", {
   locale: currentLocale,
   updateLocale: updateCurrentLocale,
+});
+
+const ComponentVModel = defineAsyncComponent({
+  loader: () => import('./components/ComponentVModel.vue'),
+  loadingComponent: LoadingComponent,
+  errorComponent: ErrorComponent,
 });
 </script>
 
