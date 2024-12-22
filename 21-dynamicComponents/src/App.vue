@@ -11,7 +11,9 @@ const currentComponent = ref(ComponentA);
     <button @click="currentComponent = ComponentA">Show component A</button>
     <button @click="currentComponent = ComponentB">Show component B</button>
     <!-- <ComponentA /> -->
-    <component v-bind:is="currentComponent"></component>
+    <KeepAlive>
+      <component v-bind:is="currentComponent"></component>
+    </KeepAlive>
   </div>
 </template>
 
