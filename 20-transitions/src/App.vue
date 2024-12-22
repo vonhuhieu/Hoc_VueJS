@@ -10,20 +10,20 @@ const isShow = ref(true);
     <h1>Transition</h1>
     <button @click="isShow = !isShow">Toggle fade</button>
 
-    <Transition>
+    <Transition name="fade">
       <p v-if="isShow">Hello</p>
     </Transition>
   </div>
 </template>
 
 <style>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 3s ease;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
 }
 
-.v-enter-from,
-.v-enter-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>
